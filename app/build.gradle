@@ -1,8 +1,5 @@
-import org.jetbrains.kotlin.gradle.dsl.JvmTarget
-
 plugins {
     id 'com.android.application'
-    id 'org.jetbrains.kotlin.android'
 }
 
 android {
@@ -28,19 +25,8 @@ android {
         sourceCompatibility JavaVersion.VERSION_17
         targetCompatibility JavaVersion.VERSION_17
     }
-
-}
-
-// Kotlin 2.0+ moved compiler settings out of the old "kotlinOptions" DSL
-// (deprecated) and into this top-level "kotlin { compilerOptions {} }" block.
-kotlin {
-    compilerOptions {
-        jvmTarget.set(JvmTarget.JVM_17)
-    }
 }
 
 dependencies {
-    // AppCompatActivity, ContextCompat, and the Activity Result API all come
-    // transitively through this one dependency — nothing else is required.
     implementation 'androidx.appcompat:appcompat:1.8.0'
 }
